@@ -19,6 +19,7 @@ I also validated the infrastructure by:
 
 **AWS Services Used:** Amazon EC2, EC2 Auto Scaling, Elastic Load Balancing (Application Load Balancer), Amazon VPC, and EC2 Launch Templates.
 ## AWS Architecture
+![SneakerDrop AWS Architecture Diagram](images/sneakerdrop-architecture-fixed.png)
 
 SneakerDrop is deployed in the AWS `us-east-1` region using a Virtual Private Cloud (VPC) spanning two Availability Zones.
 
