@@ -53,3 +53,25 @@ The architecture consists of the following components:
 The architecture reduces reliance on a single EC2 instance. If one server fails, the load balancer can route requests to another healthy instance while the Auto Scaling Group provisions a replacement.
 
 This behavior was validated by intentionally terminating an EC2 instance, observing automatic replacement, and confirming that both the replacement and surviving instances successfully served HTTP requests through the ALB.
+### Auto Scaling Self-Healing and Failure Recovery Test
+
+**Objective:** Validate that the SneakerDrop infrastructure can automatically recover from an EC2 instance failure.
+
+**Test Procedure:**
+1. Configured the Auto Scaling Group with a desired capacity of 2, minimum of 2, and maximum of 5 instances.
+2. Simulated an EC2 instance failure by terminating an instance.
+3. Monitored the Auto Scaling Group activity history for replacement activity.
+4. Verified that the Auto Scaling Group restored the desired capacity of 2 healthy instances.
+
+**Results:**
+- AWS detected that an EC2 instance was unhealthy.
+- The Auto Scaling Group automatically launched a replacement EC2 instance.
+- AWS activity history confirmed successful replacement activity.
+- The infrastructure returned to its configured desired capacity.
+
+**Business Value:**
+This configuration reduces manual intervention during instance failures and improves application availability by automatically replacing unhealthy EC2 instances.
+
+**AWS Auto Scaling Activity History:**
+
+![SneakerDrop Auto Scaling Self-Healing Test](images/sneakerdrop-self-healing-test.png)
