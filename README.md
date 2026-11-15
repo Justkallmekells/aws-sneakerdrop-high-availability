@@ -74,7 +74,8 @@ This configuration reduces manual intervention during instance failures and impr
 
 **AWS Auto Scaling Activity History:**
 
-![SneakerDrop Auto Scaling Self-Healing Test](images/sneakerdrop-self-healing-cropped.png.png)
+![SneakerDrop Auto Scaling Self-Healing Test](images/sneakerdrop-self-healing-final.png)
+*Figure: AWS Auto Scaling activity history showing successful removal of an unhealthy EC2 instance and automatic launch of a replacement instance.*
 ## EC2 User Data Automation
 
 SneakerDrop uses an EC2 Launch Template (`sneakerdrop-LT`) containing a Bash user-data script to automate web server configuration whenever a new EC2 instance launches.
