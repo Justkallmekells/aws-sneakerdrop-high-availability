@@ -75,3 +75,19 @@ This configuration reduces manual intervention during instance failures and impr
 **AWS Auto Scaling Activity History:**
 
 ![SneakerDrop Auto Scaling Self-Healing Test](images/sneakerdrop-self-healing-cropped.png.png)
+## EC2 User Data Automation
+
+SneakerDrop uses an EC2 Launch Template (`sneakerdrop-LT`) containing a Bash user-data script to automate web server configuration whenever a new EC2 instance launches.
+
+The script performs the following tasks:
+
+1. Retrieves the EC2 instance ID and Availability Zone using IMDSv2.
+2. Updates system packages and installs the Apache HTTP web server.
+3. Starts Apache and enables it to start automatically on subsequent boots.
+4. Creates a custom SneakerDrop HTML landing page.
+5. Displays the instance ID and Availability Zone on the webpage to support load-balancing validation.
+6. Configures ownership and permissions for the web directory.
+
+**Business Value:** Automating server configuration reduces repetitive manual work and helps Auto Scaling launch consistently configured replacement instances during infrastructure failures.
+
+**Source Code:** [View EC2 User Data Script](scripts/user-data.sh)
