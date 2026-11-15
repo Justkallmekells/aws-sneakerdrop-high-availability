@@ -43,11 +43,12 @@ The architecture consists of the following components:
 - Each webpage displays its EC2 instance ID and Availability Zone to help verify traffic distribution.
 
 ### EC2 Auto Scaling Group (ASG)
-- The `sneakerdrop-asg` Auto Scaling Group maintains a desired capacity of two EC2 instances.
+- The `sneakerdrop-asg` Auto Scaling Group was configured during testing to maintain a desired capacity of two EC2 instances.
 - Minimum capacity: 2 instances.
 - Maximum capacity: 5 instances.
 - Instances are distributed across two Availability Zones to improve availability.
 - If an instance is terminated, the ASG automatically launches a replacement to restore the desired capacity.
+- **Cost Management Note:** During testing, the Auto Scaling Group was configured with a desired capacity of 2, minimum of 2, and maximum of 5 instances. After testing, the capacity settings were reduced to 0 to avoid ongoing EC2 instance charges. The infrastructure configuration remains documented for future deployment.
 
 ### High Availability and Self-Healing
 The architecture reduces reliance on a single EC2 instance. If one server fails, the load balancer can route requests to another healthy instance while the Auto Scaling Group provisions a replacement.
