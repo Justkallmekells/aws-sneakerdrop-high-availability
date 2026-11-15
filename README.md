@@ -74,4 +74,4 @@ This configuration reduces manual intervention during instance failures and impr
 
 **AWS Auto Scaling Activity History:**
 
-![SneakerDrop Auto Scaling Self-Healing Test](images/sneakerdrop-self-healing-test.png)
+![SneakerDrop Auto Scaling Self-Healing Test](images/sneakerdrop-self-healing-cropped.png.png)
