@@ -93,3 +93,16 @@ The script performs the following tasks:
 **Business Value:** Automating server configuration reduces repetitive manual work and helps Auto Scaling launch consistently configured replacement instances during infrastructure failures.
 
 **Source Code:** [View EC2 User Data Script](scripts/user-data.sh)
+## Lessons Learned
+
+### Application Load Balancing
+I learned how an Application Load Balancer distributes incoming HTTP requests across multiple healthy EC2 instances. This reduces dependence on a single server and improves application availability, especially during periods of increased customer traffic.
+
+### Auto Scaling and Self-Healing
+I learned how an Auto Scaling Group maintains the desired number of EC2 instances and automatically replaces unhealthy instances. Working alongside the Application Load Balancer, this automation helps SneakerDrop recover from server failures while reducing manual intervention.
+
+### EC2 User Data Automation
+I learned how to use a Bash user-data script within an EC2 Launch Template to automate server configuration. Each new instance automatically installs and starts Apache and creates the SneakerDrop website. This improves consistency across servers and eliminates the need to manually configure replacement instances.
+
+### High Availability Across Multiple Availability Zones
+I learned why deploying infrastructure across multiple Availability Zones is important for business continuity. By placing EC2 instances in us-east-1a and us-east-1b, SneakerDrop reduces the risk of an outage in one Availability Zone taking the entire application offline. This architecture helps protect the customer experience and reduces the risk of lost revenue.
