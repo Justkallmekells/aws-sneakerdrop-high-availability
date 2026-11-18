@@ -106,3 +106,20 @@ I learned how to use a Bash user-data script within an EC2 Launch Template to au
 
 ### High Availability Across Multiple Availability Zones
 I learned why deploying infrastructure across multiple Availability Zones is important for business continuity. By placing EC2 instances in us-east-1a and us-east-1b, SneakerDrop reduces the risk of an outage in one Availability Zone taking the entire application offline. This architecture helps protect the customer experience and reduces the risk of lost revenue.
+## Project Limitations and Future Improvements
+
+This project was designed as a hands-on demonstration of AWS high availability, load balancing, Auto Scaling, and EC2 automation. While the architecture successfully demonstrated these concepts, several improvements would be necessary before using it for a production e-commerce application.
+
+### 1. HTTPS and TLS Encryption
+The current Application Load Balancer uses HTTP on port 80 for demonstration purposes. In production, I would configure HTTPS on port 443 using an AWS Certificate Manager (ACM) certificate to encrypt customer traffic between the browser and the ALB. I would also evaluate encryption for backend connections.
+
+### 2. Private Subnets and Network Security
+The EC2 instances currently run in public subnets. For production, I would move the application servers into private subnets while keeping the internet-facing ALB in public subnets. I would configure security groups to permit application traffic to the EC2 instances only from the ALB and provide controlled outbound access for software updates.
+
+### 3. CloudWatch Monitoring and Alerting
+I would implement Amazon CloudWatch monitoring for EC2 CPU utilization, ALB target response times, and unhealthy target counts. CloudWatch Alarms and Amazon SNS notifications would help the engineering team identify and respond to performance or availability issues more quickly.
+
+### 4. Infrastructure as Code (IaC)
+I manually deployed the SneakerDrop infrastructure through the AWS Console. As a future improvement, I would use Terraform or AWS CloudFormation to define and deploy AWS resources through version-controlled configuration files. This would make deployments more repeatable, reduce manual configuration errors, and simplify recreating the infrastructure across environments.
+
+These improvements would help move SneakerDrop toward a more secure, maintainable, and production-ready architecture.
