@@ -8,7 +8,7 @@ The project simulates a sneaker retailer preparing for increased website traffic
 
 To address this challenge, I designed and deployed an AWS infrastructure environment using an Application Load Balancer (ALB), an Auto Scaling Group (ASG), Amazon EC2, and a Launch Template.
 
-The application runs on Apache web servers across two AWS Availability Zones, helping reduce dependence on a single server or Availability Zone.
+During testing, the application ran on Apache web servers across two AWS Availability Zones, helping reduce dependence on a single server or Availability Zone.
 
 I also validated the infrastructure by:
 
