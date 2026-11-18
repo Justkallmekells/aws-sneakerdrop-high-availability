@@ -20,6 +20,7 @@ I also validated the infrastructure by:
 **AWS Services Used:** Amazon EC2, EC2 Auto Scaling, Elastic Load Balancing (Application Load Balancer), Amazon VPC, and EC2 Launch Templates.
 ## AWS Architecture
 ![SneakerDrop AWS Architecture Diagram](images/sneakerdrop-architecture-fixed.png)
+**Architecture Note:** The diagram represents the infrastructure configuration used during testing, when the Auto Scaling Group maintained two EC2 instances across two Availability Zones. After validation, the ASG capacity was reduced to zero to avoid ongoing EC2 instance charges.
 
 SneakerDrop is deployed in the AWS `us-east-1` region using a Virtual Private Cloud (VPC) spanning two Availability Zones.
 
