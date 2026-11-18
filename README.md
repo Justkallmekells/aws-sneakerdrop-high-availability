@@ -68,7 +68,7 @@ This behavior was validated by intentionally terminating an EC2 instance, observ
 **Results:**
 - AWS detected that an EC2 instance was unhealthy.
 - The Auto Scaling Group automatically launched a replacement EC2 instance.
-- AWS activity history confirmed successful replacement activity.
+- AWS Auto Scaling Activity History recorded successful termination and replacement-launch activities, confirming that the Auto Scaling Group initiated automated recovery without manual instance provisioning.
 - The infrastructure returned to its configured desired capacity.
 
 **Business Value:**
